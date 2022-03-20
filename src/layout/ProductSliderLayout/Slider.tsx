@@ -199,7 +199,7 @@ const Slider = (props: SliderProps) => {
     const pageCandidateWithoutSnap = -(position / containerWidth)
     const pageCandidate =
       curPage +
-      (pageCandidateWithoutSnap < curPage ? -snapDistance : snapDistance
+      (pageCandidateWithoutSnap < curPage ? -snapDistance : snapDistance)
 
     calculateDistanceAndAnimate(
       pageCandidate > pageCount - 1
@@ -209,7 +209,6 @@ const Slider = (props: SliderProps) => {
         : (pageCandidateWithoutSnap < curPage
             ? Math.ceil(pageCandidate * 100000)
             : Math.floor(pageCandidate * 100000)) / 100000
-
     )
 
     if (pageCandidate > pageCount - 1) {
@@ -224,6 +223,7 @@ const Slider = (props: SliderProps) => {
       )
     }
   }
+
   const itemsInRows: Array<any> = []
   const cardsPerRow = Math.ceil(props.items.length / props.rows)
   let last = 0

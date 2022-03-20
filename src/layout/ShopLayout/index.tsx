@@ -1,6 +1,7 @@
 import {ChevronRightIcon} from '@chakra-ui/icons'
 import {
   Box,
+  Container,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -54,15 +55,19 @@ export const Breadcrumbs = (props: {path: string}) => {
 export const ShopLayout: React.FC = ({children}) => {
   return (
     <>
-      <Box
-        mx={{base: 4, md: 16}}
-        my={{base: 4, md: 8}}
+      <Container
+        as="section"
+        maxW="8xl"
+        pt="6"
+        id="featuredproducts"
         bg={useColorModeValue('white', 'gray.700')}
         borderWidth="1px"
-        borderRadius="lg"
-        px={4}>
+        my={{base: 4, md: 8}}
+        px={4}
+        py={4}
+        borderRadius="lg">
         <Box>{children}</Box>
-      </Box>
+      </Container>
     </>
   )
 }

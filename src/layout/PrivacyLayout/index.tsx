@@ -192,12 +192,12 @@ export const PrivacyLayout = (props: {activePath: string}) => {
             {cookieSettings.cookie.analytics ? (
               <Text>
                 <CheckCircleIcon fontSize="20px" color="green" mr="2" />
-                Statistiken
+                Analytik
               </Text>
             ) : (
               <Text>
                 <NotAllowedIcon fontSize="20px" color="agt.red" mr="2" />
-                Statistiken
+                Analytik
               </Text>
             )}
             <Button

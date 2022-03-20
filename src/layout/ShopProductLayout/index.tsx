@@ -23,6 +23,7 @@ import {FaHeart, FaShare} from 'react-icons/fa'
 import {GatsbyImage, IGatsbyImageData} from 'gatsby-plugin-image'
 import {ProductSliderLayout} from '../ProductSliderLayout'
 import {BaseLayout} from '../BaseLayout'
+import {BannerLayout} from '../BannerLayout'
 import ContactModal from '../../components/organisms/ContactModal'
 
 const Header = (props: {title: string; path: string}) => {
@@ -286,7 +287,7 @@ const ProductMoreDetail = (props: {description: string}) => {
 }
 
 export const ShopProductLayout = (props: {
-  header: React.ComponentProps<typeof Header>
+  header: React.ComponentProps<typeof BannerLayout>
   imageSlider: React.ComponentProps<typeof ImageSlider>
   productDetail: React.ComponentProps<typeof ProductDetail>
   productMoreDetail: React.ComponentProps<typeof ProductMoreDetail>
@@ -296,8 +297,9 @@ export const ShopProductLayout = (props: {
 }) => {
   return (
     <BaseLayout withSearch={true} activePath={props.header.path}>
+      <BannerLayout {...props.header} />
       <ShopLayout>
-        <Header {...props.header} />
+        {/* <Header {...props.header} /> */}
         <VStack spacing={12} w="100%">
           <Box w="100%">
             <Flex direction={{base: 'column', lg: 'row'}}>

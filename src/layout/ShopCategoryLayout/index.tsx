@@ -16,6 +16,7 @@ import * as style from './style'
 import React from 'react'
 import {ProductGrid} from '../ProductGridLayout'
 import {BaseLayout} from '../BaseLayout'
+import {BannerLayout} from '../BannerLayout'
 
 import {Link as GatsbyLink} from 'gatsby'
 
@@ -113,7 +114,8 @@ export const ShopCategoryLayout = (props: {
 }) => {
   return (
     <BaseLayout withSearch={true} activePath={props.path}>
-      <Header path={props.path} title={props.title} />
+      {/* <Header path={props.path} title={props.title} /> */}
+      <BannerLayout title={props.title} path={props.path} />
       <ShopLayout>
         <VStack spacing={16} align="left">
           <CategoryGrid {...props.category} />

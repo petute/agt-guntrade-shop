@@ -52,7 +52,7 @@ export const useCookieState = () => {
     } else {
       CookieModalService.clearValues()
     }
-  }, [accepted])
+  }, [cookie, accepted])
 
   const updateCookie = React.useCallback(
     (name: keyof typeof cookie, value: boolean) => {

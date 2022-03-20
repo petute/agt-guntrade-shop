@@ -115,7 +115,7 @@ const CookieModal = () => {
             ml="20px"
             isChecked={cookie.analytics}
             onChange={e => updateCookie('analytics', e.target.checked)}>
-            Statistiken
+            Analytik
           </Checkbox>
         </Flex>
       </ModalBody>

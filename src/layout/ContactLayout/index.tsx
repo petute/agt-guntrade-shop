@@ -1,60 +1,75 @@
+import React from 'react'
 import {
-  Box,
-  Button,
-  CloseButton,
-  Flex,
-  Heading,
   Container,
-  HStack,
   Icon,
-  Link,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
   Text,
   useColorModeValue,
-  VStack
+  VStack,
+  SimpleGrid,
+  Center
 } from '@chakra-ui/react'
 import {BaseLayout} from '../BaseLayout'
-import React, {useEffect, useState} from 'react'
-import {CheckCircleIcon, EmailIcon, NotAllowedIcon} from '@chakra-ui/icons'
-import {CookieModalService, useCookieState} from '../../services/cookiemodal'
+import GoogleMaps from '../GoogleMapsLayout'
+import {BannerLayout} from '../BannerLayout'
+import {ContactForm} from '../../components/organisms/ContactForm'
+import {FaAddressBook, FaEnvelopeSquare, FaPhoneSquare} from 'react-icons/fa'
 
 export interface ContactLayoutProps {
-  heading: React.ReactNode
-  contact: React.ReactNode
-  // city: React.ReactNode
-  // zip_code: React.ReactNode
-  // address: React.ReactNode
-  // telephone: React.ReactNode
-  // telefax: React.ReactNode
-  // whatsapp_telephone: React.ReactNode
-  // whatsapp_contactline: React.ReactNode
-  // email: React.ReactNode
-  // copyrightholder: React.ReactNode
+  activePath: string
+  phone: React.ReactNode
+  email: React.ReactNode
+  address: React.ReactNode
 }
 
 export const ContactLayout = (props: ContactLayoutProps) => {
-
   return (
-    <>
-      <Heading as="h4" size="md" mt="4">
-        {props.heading}
-      </Heading>
-      {props.contact}
-      {/*
-      {props.city}
-      {props.zip_code}
-      {props.address}
-      {props.telephone}
-      {props.telefax}
-      {props.whatsapp_telephone}
-      {props.whatsapp_contactline}
-      {props.email}
-      {props.copyrightholder}
-      */}
-    </>
+    <BaseLayout activePath="/contact" withSearch={true}>
+      <BannerLayout title='Kontakt' path={props.activePath} />
+      <Container
+        as="section"
+        maxW="8xl"
+        pt="6"
+        id="featuredproducts"
+        bg={useColorModeValue('white', 'gray.700')}
+        borderWidth="1px"
+        my={{base: 4, md: 8}}
+        px={4}
+        py={4}
+        borderRadius="lg">
+        <ContactForm requestOptions={[]} mb="5" />
+        <GoogleMaps />
+        <SimpleGrid
+          spacing="40px"
+          py={8}
+          columns={[1, 1, 1, 3]}
+          bg="agt.gray"
+          color="white">
+          <Center>
+            <VStack spacing={6}>
+              <Icon as={FaPhoneSquare} boxSize="16" />
+              <Text fontSize="xl" fontWeight="semibold">
+                {props.phone}
+              </Text>
+            </VStack>
+          </Center>
+          <Center>
+            <VStack spacing={6}>
+              <Icon as={FaAddressBook} boxSize="16" />
+              <Text fontSize="xl" fontWeight="semibold">
+                {props.address}
+              </Text>
+            </VStack>
+          </Center>
+          <Center>
+            <VStack spacing={6}>
+              <Icon as={FaEnvelopeSquare} boxSize="16" />
+              <Text fontSize="xl" fontWeight="semibold">
+                {props.email}
+              </Text>
+            </VStack>
+          </Center>
+        </SimpleGrid>
+      </Container>
+    </BaseLayout>
   )
 }

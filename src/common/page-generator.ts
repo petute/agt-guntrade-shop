@@ -328,7 +328,7 @@ const createCollectionShopAndProductPages = (data, actions) => {
             items: items
           },
           productGrid: {
-            title: 'Hello my dudes',
+            title: 'Empfohlende Artikel',
             items: edge.node.products.slice(0, 8)
           }
         }

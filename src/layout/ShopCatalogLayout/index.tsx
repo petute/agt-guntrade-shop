@@ -29,6 +29,7 @@ import React from 'react'
 import {Breadcrumbs, ShopLayout} from '../ShopLayout'
 import {ProductGrid} from '../ProductGridLayout'
 import {BaseLayout} from '../BaseLayout'
+import {BannerLayout} from '../BannerLayout'
 
 // tag builder => input tag output type:content
 
@@ -42,8 +43,8 @@ export const Header = (props: {
 }) => {
   return (
     <>
-      <Breadcrumbs path={props.path} />
-      <Heading size="2xl">{props.title}</Heading>
+      {/* <Breadcrumbs path={props.path} />
+      <Heading size="2xl">{props.title}</Heading> */}
       <Box
         my="2"
         position={'sticky'}
@@ -234,6 +235,7 @@ export const ShopCatalogLayout = (props: {
 
   return (
     <BaseLayout withSearch={false} activePath={props.activePath}>
+      <BannerLayout {...props.header} />
       <ShopLayout>
         <Header
           {...props.header}
